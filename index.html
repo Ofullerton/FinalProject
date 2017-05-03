@@ -4,22 +4,38 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="index.css">
     <title> Final Project</title>
     <script type="text/javascript" src="index.js"></script>
   </head>
   <body lang="en-US">
-    <button type="button" id="displayPicture" class="showPic" onclick="displayHint()">
-      Click here for another hint
-  </button>
-  <img id="displayPicture">
-  </img>
-    <input class="question1">
-    </input>
-    <p id="response">
-    </p>
-    <button type="button" class="btn btn-default" aria-label="Random"
-            onclick="validatePic()">
-      <span class="glyphicon glyphicon-random" aria-hidden="true"></span>
-    </button>
+    <div id="firstPage">
+      <h1 class="headers">Final Project
+      </h1>
+      <h2 class="headers"> by Oscar Fullerton
+      </h2>
+      <div>
+      </div class="filler">
+      <div id="paragraphs">
+        <p> Through the next few web pages you will be asked to name
+        the item that is in the picture. Every time you get the answer right
+        you will be awarded a point and the total amount of points you
+        have by the end of the quiz will determine your grade. Be sure
+        to input your answer as a singular item and
+        <b> NOT PLURAL </b>. You will be awarded zero points even if the
+        answer is technically correct. Also, remember to use a capital letter at
+        as the first letter of the word. Click the button below when you are ready
+        to begin!
+        </p>
+      </div>
+      </div>
+      <div class="filler">
+      </div>
+      <div id="buttonDiv">
+        <button type="button" class="buttons" onclick="nextPage()"> This is the Button that you have to click
+          in order to start the test that was mentioned in the paragraph above.
+        </button>
+      </div>
+    </div>
   </body>
 </html>
