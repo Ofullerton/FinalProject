@@ -66,21 +66,7 @@ function displayHint()
 
   current = index;
 console.log(giraffes[current]);
-document.getElementById("hintPlace").src = giraffes.picture;
-}
-
-var i = 0;
-var current;
-function displayHint1()
-{
-  var index;
-  do {
- index = Math.floor(Math.random() * sun.length);
-  }
-  while (index==current);
-  current = index;
-console.log(sun[current]);
-document.getElementById("hintPlace").src = sun.picture;
+document.getElementById("hintPlace").src = giraffes[current].picture;
 }
 
 var i = 0;
@@ -89,25 +75,99 @@ function displayHint2()
 {
   var index;
   do {
+ index = Math.floor(Math.random() * sun.length);
+  }
+  while (index==current);
+  current = index;
+console.log(sun[current]);
+document.getElementById("hintPlace2").src = sun[current].picture;
+}
+
+var i = 0;
+var current;
+function displayHint3()
+{
+  var index;
+  do {
  index = Math.floor(Math.random() * wrench.length);
   }
   while (index==current);
   current = index;
 console.log(wrench[current]);
-document.getElementById("hintPlace").src = wrench.picture;
+document.getElementById("hintPlace3").src = wrench[current].picture;
 }
 
-function validatePic()
+
+
+
+function validatePic1()
 {
-  if(input.question1 = "Giraffe")
+  var x = document.getElementById('input1').value;
+  if( x == "Giraffe")
   {
-  document.getElementById('response').innerHTML = "correct!"
+    function setCookie("points", 1, 30) {
+      document.cookie = "points" + 1;
+    window.location.href ="page2.html";
+}
+  else
+  {
+    document.cookie = "points" + 0;
+    document.getElementById('response1').innerHTML = "Wrong!"
+  }
+}
+
+function validatePic2()
+{
+  function getCookie(points) {
+    var totalPoints = points + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(points) == 0) {
+            return c.substring(points.length, c.length);
+        }
+    }
+    return "";
+}
+  var x = document.getElementById('input2').value;
+  if( x == "Sun")
+  {
+    function setCookie("points", 1, 30) {
+      document.cookie = "points" + 1;
+    window.location.href ="page3.html";
   }
   else
   {
-    document.getElementById('reponse').innerHTML = "Wrong!"
+    document.getElementById('response2').innerHTML = "Wrong!"
+    document.cookie = "points" + 0;
   }
 }
-function nextPage(){
+function validatePic3()
+{
+  var x = document.getElementById('input3').value;
+  if( x == "Wrench")
+  {
+  document.getElementById('response3').innerHTML = "Correct!"
+
+  }
+  else
+  {
+    document.getElementById('response3').innerHTML = "Wrong!"
+  }
+}
+function nextPage1(){
   window.location.href ="page1.html";
+}
+function nextPage2(){
+  window.location.href ="page2.html";
+}
+function nextPage3(){
+  window.location.href ="page3.html";
+}
+function nextPage4(){
+  window.location.href ="finalPage.html";
 }
