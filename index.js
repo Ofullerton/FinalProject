@@ -1,3 +1,20 @@
+function nextPage1(){
+  window.location.href ="page1.html";
+}
+function nextPage2(){
+  window.location.href ="page2.html";
+}
+function nextPage3(){
+  window.location.href ="page3.html";
+}
+function nextPage4(){
+  window.location.href ="finalPage.html";
+}
+function alternateMessage()
+{
+document.getElementById('altMes').innerHTML = "The button got smaller!";
+}
+
 var giraffes = [
   {
     description: "hint1",
@@ -96,30 +113,88 @@ function displayHint3()
 console.log(wrench[current]);
 document.getElementById("hintPlace3").src = wrench[current].picture;
 }
-
-
-
+function initiateGame()
+{
+  var present = Number(getCookie("point"));
+  setCookie("point", 0, 1)
+  nextPage1();
+}
 
 function validatePic1()
 {
+
   var x = document.getElementById('input1').value;
-  if( x == "Giraffe")
+
+  if( x == "Giraffe" || x == "giraffe")
   {
-    function setCookie("points", 1, 30) {
-      document.cookie = "points" + 1;
+
+    setCookie("point", 1, 30);
     window.location.href ="page2.html";
 }
   else
   {
-    document.cookie = "points" + 0;
-    document.getElementById('response1').innerHTML = "Wrong!"
+    setCookie("point",0,30);
+    document.getElementById('response1').innerHTML = "Wrong!";
   }
 }
 
+
+
 function validatePic2()
 {
-  function getCookie(points) {
-    var totalPoints = points + "=";
+var present = Number(getCookie("point")); // this is where var present = was taken out
+  //setCookie("point", present, 30);
+  var x = document.getElementById('input2').value;
+  if( x == "Sun" || x == "sun")
+  {
+      setCookie("point", 1, 30);
+      window.location.href ="page3.html";
+}
+  else
+  {
+    setCookie("point", 0, 30);
+    document.getElementById('response2').innerHTML = "Wrong!";
+  }
+}
+
+function validatePic3()
+{
+var present = Number(getCookie("point")); // too the var present =s
+  setCookie("point", present, 30);
+  var x = document.getElementById('input3').value;
+  if( x == "Wrench" || x == "wrench")
+  {
+  setCookie("point", 1, 30);
+  window.location.href ="finalPage.html";
+  }
+  else
+  {
+    setCookie("point",0,30);
+    document.getElementById('response3').innerHTML = "Wrong!";
+
+  }
+}
+var present = Number(getCookie("point"));
+getCookie("point", present,30);
+
+
+var results =Number(present);
+var total = results.value/3 ;
+//document.getElementById('answerResults').innerHTML= total;
+ //document.getElementById('answerResults').innerHTML = "your score is:" + results;
+
+
+//Generously borrowed from w3 https://www.w3schools.com/js/js_cookies.asp
+
+function setCookie(cname, cvalue, exdays) {
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  var expires = "expires="+d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+//Generously borrowed from w3 https://www.w3schools.com/js/js_cookies.asp
+function getCookie(cname) {
+    var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);
     var ca = decodedCookie.split(';');
     for(var i = 0; i <ca.length; i++) {
@@ -127,47 +202,9 @@ function validatePic2()
         while (c.charAt(0) == ' ') {
             c = c.substring(1);
         }
-        if (c.indexOf(points) == 0) {
-            return c.substring(points.length, c.length);
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
         }
     }
     return "";
-}
-  var x = document.getElementById('input2').value;
-  if( x == "Sun")
-  {
-    function setCookie("points", 1, 30) {
-      document.cookie = "points" + 1;
-    window.location.href ="page3.html";
-  }
-  else
-  {
-    document.getElementById('response2').innerHTML = "Wrong!"
-    document.cookie = "points" + 0;
-  }
-}
-function validatePic3()
-{
-  var x = document.getElementById('input3').value;
-  if( x == "Wrench")
-  {
-  document.getElementById('response3').innerHTML = "Correct!"
-
-  }
-  else
-  {
-    document.getElementById('response3').innerHTML = "Wrong!"
-  }
-}
-function nextPage1(){
-  window.location.href ="page1.html";
-}
-function nextPage2(){
-  window.location.href ="page2.html";
-}
-function nextPage3(){
-  window.location.href ="page3.html";
-}
-function nextPage4(){
-  window.location.href ="finalPage.html";
 }
