@@ -142,8 +142,9 @@ function validatePic1()
 
 function validatePic2()
 {
+
 var present = Number(getCookie("point")); // this is where var present = was taken out
-  //setCookie("point", present, 30);
+//  setCookie("point", present.value, 30);
   var x = document.getElementById('input2').value;
   if( x == "Sun" || x == "sun")
   {
@@ -160,7 +161,7 @@ var present = Number(getCookie("point")); // this is where var present = was tak
 function validatePic3()
 {
 var present = Number(getCookie("point")); // too the var present =s
-  setCookie("point", present, 30);
+//  setCookie("point", present, 30);
   var x = document.getElementById('input3').value;
   if( x == "Wrench" || x == "wrench")
   {
@@ -178,9 +179,9 @@ var present = Number(getCookie("point"));
 getCookie("point", present,30);
 
 
-var results =Number(present);
-var total = results.value/3 ;
-//document.getElementById('answerResults').innerHTML= total;
+
+var total = Number(present)/3 ;
+document.getElementById('answerResults').innerHTML= total.value;
  //document.getElementById('answerResults').innerHTML = "your score is:" + results;
 
 
