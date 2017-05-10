@@ -1,3 +1,4 @@
+//Oscar Fullerton//
 function nextPage1(){
   window.location.href ="page1.html";
 }
